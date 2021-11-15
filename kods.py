@@ -6,7 +6,7 @@ from configparser import ConfigParser
 a = random.uniform(0, 500)
 b = random.uniform(0, 10)
 
-
+print ("Random comment")
 """
 print(a)
 print(b)
