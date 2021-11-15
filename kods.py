@@ -59,7 +59,7 @@ def authorization() :
 def details() :
     try: 
         full_weight = float(input("Enter the full weight: "))
-    except: print("Make sure you have entered numbers and all the kommas are the dot (.) symobl")
+    except: print("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     component = input("What component did you weight? ")
 
 #Calls out the method
