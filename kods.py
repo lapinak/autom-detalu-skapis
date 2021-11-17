@@ -6,7 +6,6 @@ from configparser import ConfigParser
 a = random.uniform(0, 500)
 b = random.uniform(0, 10)
 
-print ("Random comment")
 """
 print(a)
 print(b)
@@ -56,15 +55,11 @@ def authorization() :
     except:
         print("Something went wrong.")
 
-def details() :
-    try: 
-        full_weight = float(input("Enter the full weight: "))
-    except: print("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
-    component = input("What component did you weight? ")
 
 #Calls out the method
 authorization()
-details()
 
-
-
+try:
+    weight = float(input("Enter the full weight: "))
+    component = input("What component did you weight?")
+except: print("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
