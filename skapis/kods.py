@@ -76,6 +76,6 @@ authorization()
 try:
     weight = float(input("Enter the full weight: "))
     component = input("What component did you weight?")
-    count = int(weight/3)
+    count = float(weight/3)
     logger.info("You've added ", count, component, " to the database")
 except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
