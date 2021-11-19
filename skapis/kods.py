@@ -82,5 +82,4 @@ while s < 1:
     except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
 
-
-print(type(component))
+print("You've added " + component + " to the base")
