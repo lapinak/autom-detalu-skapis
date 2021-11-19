@@ -81,3 +81,6 @@ while s < 1:
         logger.info("You've added the component to the database")
     except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
+
+
+logger.info("You've added ", component, " to the database")
