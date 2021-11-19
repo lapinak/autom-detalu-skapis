@@ -74,7 +74,7 @@ def authorization() :
 authorization()
 
 s = 0
-while s<0:
+while s < 1:
     try:
         weight = float(input("Enter the full weight: "))
     except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
