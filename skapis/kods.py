@@ -78,8 +78,6 @@ while s < 1:
     component = str(input("What component did you weight? "))
     try:
         weight = float(input("Enter the full weight: "))
-        logger.info("You've added the component to the database")
+        logger.info("You've added " + component + " to the base")
     except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
-
-print("You've added " + component + " to the base")
