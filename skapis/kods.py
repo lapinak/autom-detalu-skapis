@@ -74,7 +74,11 @@ def authorization() :
 authorization()
 
 try:
-    weight = float(input("Enter the full weight: "))
+    try:
+        weight = float(input("Enter the full weight: "))
+    except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
+    
     component = input("What component did you weight? ")
     logger.info("You've added the component to the database")
-except: logger.debug("Make sure you have entered numbers and all the kommas are the dot (.) symobol")
+except:
+    logger.error("An erorr has occured")
