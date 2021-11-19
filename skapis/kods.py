@@ -83,4 +83,4 @@ while s < 1:
     break
 
 
-logger.info("You've added ", component, " to the database")
+logger.info("You've added ", str(component), " to the database")
