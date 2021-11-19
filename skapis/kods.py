@@ -75,7 +75,7 @@ authorization()
 
 s = 0
 while s < 1:
-    component = input("What component did you weight? ")
+    component = str(input("What component did you weight? "))
     try:
         weight = float(input("Enter the full weight: "))
         logger.info("You've added the component to the database")
@@ -83,4 +83,4 @@ while s < 1:
     break
 
 
-logger.info("You've added ", str(component), " to the database")
+logger.info("You've added ", format(str(component)), " to the database")
