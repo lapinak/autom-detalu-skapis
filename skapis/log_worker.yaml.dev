@@ -8,7 +8,7 @@ formatters:
 handlers:
   file:
     class: logging.handlers.TimedRotatingFileHandler
-    level: DEBUG
+    level: INFO
     formatter: complex
     filename: worker.log
     when: 'midnight'
@@ -18,7 +18,7 @@ handlers:
     interval: 1
   screen:
     class: logging.StreamHandler
-    level: INFO
+    level: DEBUG
     formatter: simple
     stream: ext://sys.stdout
 
