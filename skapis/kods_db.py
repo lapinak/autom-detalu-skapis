@@ -4,9 +4,11 @@ import random
 import getpass
 import datetime
 import yaml
+import mysql.connector
 
 from datetime import datetime
 from configparser import ConfigParser
+from mysql.connector import Error
 
 # Loading logging configuration
 with open('./log_worker.yaml.dev', 'r') as stream:
@@ -17,39 +19,28 @@ logging.config.dictConfig(config)
 # Creating logger
 logger = logging.getLogger('root')
 
-"""
-a = random.uniform(0, 500)
-b = random.uniform(0, 10)
+try:
+	config = ConfigParser()
+	config.read('config.ini')
+    
+	username = config.get('account', 'username')
 
-print(a)
-print(b)
+	mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
+	mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
+	mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
+	mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
 
-skaits = int(a/b)
-
-if (skaits % 10 == 1):
-    print("Nodalījumā ir: ", skaits ,"component")
-else:
-    print("Nodalījumā ir:", skaits ,"components")
-"""
+except:
+	logger.exception('')
+logger.info('DONE')
 
 #Reads config.ini file where username and password are stored to either get simple/guest access or 'account access'
 def access() :
-    try :
-        config = ConfigParser()
-        config.read('config.ini')
-
-        username = config.get('account', 'username')
-        passwd = config.get('account', 'passw')
-    except :
-        #In case if soemthing has gone wrong with accessing the data in beginning stage there is a print with an error
-        logger.error("We can't access the configuration file with your account details.")
-
     #Prompts th user to enter their data
     try :
         user = input("Username: ")
-        passw = getpass.getpass("Password: ")
 
-        if user == username and passw == passwd :
+        if user == username :
             return True
         else :
             return False
