@@ -81,5 +81,3 @@ while s < 1:
         logger.debug(
             "Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
-
-db.call()
