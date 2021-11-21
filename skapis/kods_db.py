@@ -85,10 +85,18 @@ def authorization():
 
 
 # Calls out the method
+
 authorization()
 
+"""
 component = str(input("What component did you weight? "))
+"""
 
+cursor = get_cursor()
+components = cursor.fetchall()
+for component in components:
+    if input == component:
+        print("Item exists")
 
 """
 s = 0
