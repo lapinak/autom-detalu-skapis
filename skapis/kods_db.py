@@ -115,10 +115,10 @@ except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
 try:
-    query_two = "select weight from components where name = ", inputvalue
-    name = inputvalue
+    query_two = "select weight from components where name = RGB"
+    
     cursor = get_cursor()
-    cursor.execute(query_two, name)
+    cursor.execute(query_two)
     record = cursor.fetchone()
 
     single_weight = float(record[0])
