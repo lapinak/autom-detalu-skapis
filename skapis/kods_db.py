@@ -99,12 +99,13 @@ component = str(input("What component did you weight? "))
 """
 
 try:
+    thing = str(input("What component did you weight? "))
     query = "select * from components"
     cursor = get_cursor()
     cursor.execute(query)
     name = cursor.fetchall()
     for component in name:
-        if input == component:
+        if thing == component:
             print("Item exists")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
