@@ -98,17 +98,21 @@ component = str(input("What component did you weight? "))
 """
 
 try:
-    thing = int(input("What component did you weight? "))
     query = "select * from components"
     cursor = get_cursor()
     cursor.execute(query)
     components = cursor.fetchall()
     print("Total number of rows in table: ", cursor.rowcount)
-    for component in components:
-        if thing == component:
-            print("It exists")
-        else:
-            print("This item is nowhere to be found")
+
+    inputvalue = str(input("What component did you weight? "))
+    temp = False
+    for c in components:
+        if inputvalue in c:
+            temp = True
+    if temp:
+        print(inputvalue)
+    else:
+        print("Data Does Not Exist")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
