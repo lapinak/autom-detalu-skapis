@@ -121,7 +121,7 @@ try:
     cursor = get_cursor()
     cursor.execute(query_two)
     record = cursor.fetchone()
-    print(type(single_weight))
+    print(type(record))
     single_weight = str(record)
     print(type(single_weight))
     single_weight.strip("(").strip(")").strip(",")
