@@ -104,7 +104,6 @@ try:
     cursor.execute(query)
     components = cursor.fetchall()
     print("Total number of rows in table: ", cursor.rowcount)
-    print("\nPrinting each row")
     for component in components:
         if thing == component:
             print("It exists")
