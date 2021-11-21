@@ -41,22 +41,27 @@ logger.info('DONE')
 connection = None
 connected = False
 
+
 def init_db():
-	global connection
-	connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db, user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+    global connection
+    connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
+                                         user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+
 
 init_db()
 
+
 def get_cursor():
-	global connection
-	try:
-		connection.ping(reconnect=True, attempts=1, delay=0)
-		connection.commit()
-	except mysql.connector.Error as err:
-		logger.error("No connection to db " + str(err))
-		connection = init_db()
-		connection.commit()
-	return connection.cursor()
+    global connection
+    try:
+        connection.ping(reconnect=True, attempts=1, delay=0)
+        connection.commit()
+    except mysql.connector.Error as err:
+        logger.error("No connection to db " + str(err))
+        connection = init_db()
+        connection.commit()
+    return connection.cursor()
+
 
 def access():
     # Prompts th user to enter their data
@@ -68,7 +73,8 @@ def access():
         else:
             return False
     except:
-        logger.debug("Your provided date is not registered, contact the administrator.")
+        logger.debug(
+            "Your provided date is not registered, contact the administrator.")
 
 
 def authorization():
@@ -92,12 +98,16 @@ authorization()
 component = str(input("What component did you weight? "))
 """
 
-cursor = get_cursor()
-query = "select * from components"
-name = cursor.fetchall()
-for component in name:
-    if input == component:
-        print("Item exists")
+try:
+    query = "select * from components"
+    cursor = get_cursor()
+    cursor.execute(query)
+    name = cursor.fetchall()
+    for component in name:
+        if input == component:
+            print("Item exists")
+except mysql.connector.Error as e:
+    print("Error reading data from MySQL table", e)
 
 """
 s = 0
