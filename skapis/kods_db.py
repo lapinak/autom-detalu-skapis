@@ -98,7 +98,7 @@ component = str(input("What component did you weight? "))
 """
 
 try:
-    thing = str(input("What component did you weight? "))
+    thing = int(input("What component did you weight? "))
     query = "select * from components"
     cursor = get_cursor()
     cursor.execute(query)
