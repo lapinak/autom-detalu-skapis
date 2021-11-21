@@ -5,10 +5,13 @@ import getpass
 import datetime
 import yaml
 import mysql.connector
+import db
 
 from datetime import datetime
 from configparser import ConfigParser
 from mysql.connector import Error
+
+from skapis.db import call
 
 # Loading logging configuration
 with open('./log_worker.yaml.dev', 'r') as stream:
@@ -79,3 +82,5 @@ while s < 1:
         logger.debug(
             "Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
+
+call()
