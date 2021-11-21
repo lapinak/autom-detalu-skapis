@@ -122,7 +122,7 @@ try:
     cursor.execute(query_two)
     record = cursor.fetchone()
     single_weight = float(record[0])
-    print(single_weight)
+    print("Wight of a single " +inputvalue+ " is " +single_weight)
 except mysql.connector.Error as error:
     print("Failed to get record from database: {}".format(error))
 
