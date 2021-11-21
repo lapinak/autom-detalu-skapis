@@ -5,7 +5,6 @@ import getpass
 import datetime
 import yaml
 import mysql.connector
-import db
 
 from datetime import datetime
 from configparser import ConfigParser
