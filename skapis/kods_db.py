@@ -105,10 +105,11 @@ try:
     components = cursor.fetchall()
     print("Total number of rows in table: ", cursor.rowcount)
     print("\nPrinting each row")
-    for row in components:
-        print("id = ", row[0], )
-        print("name = ", row[1])
-        print("weight  = ", row[2])
+    for component in components:
+        if thing == component:
+            print("It exists")
+        else:
+            print("This item is nowhere to be found")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
