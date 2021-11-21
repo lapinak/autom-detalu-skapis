@@ -93,8 +93,9 @@ component = str(input("What component did you weight? "))
 """
 
 cursor = get_cursor()
-components = cursor.fetchall()
-for component in components:
+query = "select * from components"
+name = cursor.fetchall()
+for component in name:
     if input == component:
         print("Item exists")
 
