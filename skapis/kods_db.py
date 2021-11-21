@@ -115,12 +115,16 @@ except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
 try:
-    select_quer = "select weight from components where name = " + inputvalue
-    cursor.execute(select_quer)
-    weight = cursor.fetchall()
-    print(select_quer)
-except:
-    print("Error")
+    query_two = "select weight from components where name = %s"
+    name = inputvalue
+    cursor = get_cursor()
+    cursor.execute(query_two, name)
+    record = cursor.fetchone()
+
+    single_weight = float(record[0])
+    print("One " +inputvalue+ "weights " +single_weight)
+except mysql.connector.Error as error:
+    print("Failed to get record from database: {}".format(error))
 
 """
 s = 0
