@@ -120,9 +120,9 @@ try:
     cursor.execute(query_two)
     record = cursor.fetchone()
     single_weight = float(record[0])
-    logger.info("Wight of a single " +inputvalue+ " is " + str(single_weight))
+    logger.info("Weight of a single " +inputvalue+ " is " + str(single_weight))
 except mysql.connector.Error as error:
     logger.error("Failed to get record from database: {}".format(error))
 
 count = int(total_weight/single_weight)
-print("You're adding " +str(count)+ " " +str(inputvalue)+ "'s to the database")
+print("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
