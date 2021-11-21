@@ -9,7 +9,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-mycursor.execute("CREATE TABLE components (id INT AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT NULL, weight float NOT NULL)")
+mycursor.execute("CREATE TABLE IF NOT EXISTS components (id INT AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT NULL, weight float NOT NULL)")
 
 sql = "INSERT INTO components (name, weight) VALUES (%s, %s)"
 val = [
