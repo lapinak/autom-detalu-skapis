@@ -102,11 +102,14 @@ try:
     query = "select * from components"
     cursor = get_cursor()
     cursor.execute(query)
-    name = cursor.fetchall()
+    components = cursor.fetchall()
     print("Total number of rows in table: ", cursor.rowcount)
-    for component in name:
-        if thing == component:
-            print("Item exists")
+    print("\nPrinting each row")
+    for row in components:
+        print("Id = ", row[0], )
+        print("Name = ", row[1])
+        print("Price  = ", row[2])
+        print("Purchase date  = ", row[3], "\n")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
@@ -121,4 +124,8 @@ while s < 1:
         logger.debug(
             "Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
+
+for component in name:
+        if thing == component:
+            print("Item exists")
 """
