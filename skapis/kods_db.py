@@ -93,10 +93,8 @@ def authorization():
 
 authorization()
 
-"""
-component = str(input("What component did you weight? "))
-"""
 
+total_weight = float(input("Enter the full weight: "))
 try:
     query = "select * from components"
     cursor = get_cursor()
@@ -110,11 +108,19 @@ try:
         if inputvalue in c:
             temp = True
     if temp:
-        print(inputvalue)
+        print("You're adding " +inputvalue+ " to database")
     else:
         print("Data Does Not Exist")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
+
+try:
+    select_quer = "select weight from components where name = " + inputvalue
+    cursor.execute(select_quer)
+    weight = cursor.fetchall()
+    print(select_quer)
+except:
+    print("Error")
 
 """
 s = 0
