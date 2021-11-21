@@ -93,14 +93,13 @@ def authorization():
 
 authorization()
 
-
 total_weight = float(input("Enter the full weight: "))
 try:
     query = "select * from components"
     cursor = get_cursor()
     cursor.execute(query)
     components = cursor.fetchall()
-    print("Total number of rows in table: ", cursor.rowcount)
+    logger.info("Total number of rows in table: ", cursor.rowcount)
 
     inputvalue = str(input("What component did you weight? "))
     temp = False
@@ -108,37 +107,22 @@ try:
         if inputvalue in c:
             temp = True
     if temp:
-        print("You're adding " +inputvalue+ " to database")
+        logger.info("You're adding " +inputvalue+ " to database")
     else:
-        print("Data Does Not Exist")
+        logger.debug("Data Does Not Exist")
 except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
 try:
     one = "select weight from components where name = '"+inputvalue+"'"
     query_two = one
-    
     cursor = get_cursor()
     cursor.execute(query_two)
     record = cursor.fetchone()
     single_weight = float(record[0])
-    print("Wight of a single " +inputvalue+ " is " + str(single_weight))
+    logger.info("Wight of a single " +inputvalue+ " is " + str(single_weight))
 except mysql.connector.Error as error:
-    print("Failed to get record from database: {}".format(error))
+    logger.error("Failed to get record from database: {}".format(error))
 
-"""
-s = 0
-while s < 1:
-    component = str(input("What component did you weight? "))
-    try:
-        weight = float(input("Enter the full weight: "))
-        logger.info("You've added " + component + " to the base")
-    except:
-        logger.debug(
-            "Make sure you have entered numbers and all the kommas are the dot (.) symobol")
-    break
-
-for component in name:
-        if thing == component:
-            print("Item exists")
-"""
+count = total_weight/single_weight
+print("You're adding " +count+ " " +inputvalue+ "'s to the database")
