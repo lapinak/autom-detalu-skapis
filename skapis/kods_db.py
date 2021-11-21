@@ -68,10 +68,7 @@ def access():
         else:
             return False
     except:
-        logger.debug(
-            "Your provided date is not registered, contact the administrator.")
-
-# The actual access method
+        logger.debug("Your provided date is not registered, contact the administrator.")
 
 
 def authorization():
@@ -90,6 +87,10 @@ def authorization():
 # Calls out the method
 authorization()
 
+component = str(input("What component did you weight? "))
+
+
+"""
 s = 0
 while s < 1:
     component = str(input("What component did you weight? "))
@@ -100,3 +101,4 @@ while s < 1:
         logger.debug(
             "Make sure you have entered numbers and all the kommas are the dot (.) symobol")
     break
+"""
