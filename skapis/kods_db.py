@@ -122,7 +122,7 @@ try:
     cursor.execute(query_two)
     record = cursor.fetchone()
     single_weight = record
-    print("One " +inputvalue+ "weights " +single_weight)
+    print(single_weight)
 except mysql.connector.Error as error:
     print("Failed to get record from database: {}".format(error))
 
