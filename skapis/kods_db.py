@@ -121,11 +121,8 @@ try:
     cursor = get_cursor()
     cursor.execute(query_two)
     record = cursor.fetchone()
-    print(type(record))
-    single_weight = str(record)
-    print(type(single_weight))
-    single_weight.strip("(").strip(")").strip(",")
-    print(type(single_weight))
+    single_weight = float(record[0])
+    print(single_weight)
 except mysql.connector.Error as error:
     print("Failed to get record from database: {}".format(error))
 
