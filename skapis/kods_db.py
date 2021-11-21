@@ -38,6 +38,25 @@ logger.info('DONE')
 
 # Reads config.ini file where username and password are stored to either get simple/guest access or 'account access'
 
+connection = None
+connected = False
+
+def init_db():
+	global connection
+	connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db, user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+
+init_db()
+
+def get_cursor():
+	global connection
+	try:
+		connection.ping(reconnect=True, attempts=1, delay=0)
+		connection.commit()
+	except mysql.connector.Error as err:
+		logger.error("No connection to db " + str(err))
+		connection = init_db()
+		connection.commit()
+	return connection.cursor()
 
 def access():
     # Prompts th user to enter their data
