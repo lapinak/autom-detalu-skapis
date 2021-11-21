@@ -99,7 +99,7 @@ try:
     cursor = get_cursor()
     cursor.execute(query)
     components = cursor.fetchall()
-    logger.info("Total number of rows in table: ", cursor.rowcount)
+    logger.info("Total number of rows in table: ", str(cursor.rowcount))
 
     inputvalue = str(input("What component did you weight? "))
     temp = False
@@ -125,4 +125,4 @@ except mysql.connector.Error as error:
     logger.error("Failed to get record from database: {}".format(error))
 
 count = total_weight/single_weight
-print("You're adding " +count+ " " +inputvalue+ "'s to the database")
+print("You're adding " +str(count)+ " " +str(inputvalue)+ "'s to the database")
