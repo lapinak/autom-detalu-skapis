@@ -115,7 +115,7 @@ except mysql.connector.Error as e:
     print("Error reading data from MySQL table", e)
 
 try:
-    query_two = "select weight from components where name = RGB"
+    query_two = "select weight from components where name = diode"
     
     cursor = get_cursor()
     cursor.execute(query_two)
