@@ -131,10 +131,3 @@ if __name__ == "__main__":
         logger.error("Failed to insert into MySQL table {}".format(error))
 
     logger.info(str(count)+ " " +str(inputvalue)+ "s added to the database")
-    print(inputvalue)
-    print(count)
-    print(total_weight)
-    print(user_name)
-    print(date)
-
-    
