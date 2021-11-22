@@ -131,7 +131,7 @@ if __name__ == "__main__":
 
         print(get_cursor.rowcount, "record inserted.")
     except:
-        logger.error("Failed to insert into MySQL table {}".format(error)")
+        logger.error("Failed to insert into MySQL table {}".format(error))
 
     print(inputvalue)
     print(count)
