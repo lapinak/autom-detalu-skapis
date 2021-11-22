@@ -125,13 +125,13 @@ if __name__ == "__main__":
 
     try:
         sql = "INSERT INTO skapis (name, count, total_weight, added_by, date) VALUES (%s, %s, %s, %s, %s)"
-        val = [(inputvalue, count, total_weight, user_name, date)]
+        val = (inputvalue, count, total_weight, user_name, date)
         get_cursor.execute(sql, val)
         connection.commit()
 
         print(get_cursor.rowcount, "record inserted.")
     except:
-        logger.error("We were not able to add " +inputvalue+ " to the database.")
+        logger.error("Failed to insert into MySQL table {}".format(error)")
 
     print(inputvalue)
     print(count)
