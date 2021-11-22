@@ -61,37 +61,30 @@ def get_cursor():
 
 
 def access():
-    # Prompts th user to enter their data
-    try:
-        user = input("Username: ")
-
-        if user == username:
-            return True
-        else:
-            return False
-    except:
-        logger.debug("Your provided data is not registered, contact the administrator.")
-
-
-def authorization():
     try:
         print("1. Log in with account ")
         print("2. Continue in guest mode ")
         access_type = input("What access do you wish to have? ")
         if access_type == '1':
-            return access()
+            try:
+                user = input("Username: ")
+                if user == username:
+                    return True
+                else:
+                    return False
+            except:
+                logger.debug("Your provided data is not registered, contact the administrator.")
         elif access_type == '2':
             return
     except:
         logger.error("Something went wrong.")
-        
+   
 now = datetime.now()
 date = now.strftime("%Y-%m-%d")
 
 #Main method from which the code runs
 if __name__ == "__main__":
 
-    authorization()
     if access() == True:
         user_name = username
     else:
