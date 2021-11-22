@@ -1,8 +1,6 @@
 import os
-from types import ClassMethodDescriptorType
 import mysql.connector
 
-from datetime import datetime
 from configparser import ConfigParser
 
 print("Configuration file test")
