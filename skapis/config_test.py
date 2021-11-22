@@ -44,3 +44,43 @@ assert connection.is_connected() == True
 print("Test successful")
 print(" ")
 print("└--------------------------┘")
+
+print("Checking if the component database exists")
+
+connection = None
+connected = False
+
+
+def init_db():
+    global connection
+    connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
+                                         user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+
+
+init_db()
+
+
+def get_cursor():
+    global connection
+    try:
+        connection.ping(reconnect=True, attempts=1, delay=0)
+        connection.commit()
+    except mysql.connector.Error as err:
+        print("No connection to db " + str(err))
+        connection = init_db()
+        connection.commit()
+    return connection.cursor()
+
+table = 'Components'
+_SQL = """SHOW TABLES"""
+get_cursor.execute(_SQL)
+results = get_cursor.fetchall()
+
+print('All existing tables:', results) # Returned as a list of tuples
+
+results_list = [item[0] for item in results] # Conversion to list of str
+
+if table in results_list:
+    print(table, 'was found!')
+else:
+    print(table, 'was NOT found!')
