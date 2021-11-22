@@ -91,7 +91,11 @@ if __name__ == "__main__":
     else:
         user_name = "guest"
 
-    total_weight = float(input("Enter the full weight: "))
+    try:
+        total_weight = float(input("Enter the full weight: "))
+    except:
+        logger.error("Make sure you have entered only numbers and all , are . symbols")
+        
     try:
         query = "select * from components"
         cursor = get_cursor()
