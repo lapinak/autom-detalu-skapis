@@ -91,7 +91,7 @@ date = now.strftime("%Y-%m-%d")
 #Main method from which the code runs
 if __name__ == "__main__":
 
-    if access == True:
+    if access() == True:
         user_name = username
     else:
         user_name = "guest"
