@@ -47,6 +47,11 @@ print("Test successful")
 print(" ")
 print("└--------------------------┘")
 
+
+print("Component database test")
+
+print("┌--------------------------┐")
+print(" ")
 print("Checking if the Component database exists")
 
 connection = None
@@ -73,8 +78,13 @@ def get_cursor():
         connection.commit()
     return connection.cursor()
 
+print("Printing the data from database")
 cursor = get_cursor()
-cursor.execute('SELECT * FROM components')
+cursor.execute("SELECT * FROM components")
 
 for i in cursor:
     print(i)
+
+print("Test successful")
+print(" ")
+print("└--------------------------┘")
