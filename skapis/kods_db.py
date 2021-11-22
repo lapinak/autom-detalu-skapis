@@ -12,7 +12,7 @@ from mysql.connector import Error
 
 
 # Loading logging configuration
-with open('./log_worker.yaml.dev', 'r') as stream:
+with open('./log_worker.yaml', 'r') as stream:
     config = yaml.safe_load(stream)
 
 logging.config.dictConfig(config)
@@ -95,7 +95,7 @@ if __name__ == "__main__":
         total_weight = float(input("Enter the full weight: "))
     except:
         logger.error("Make sure you have entered only numbers and all , are . symbols")
-        
+
     try:
         query = "select * from components"
         cursor = get_cursor()
