@@ -80,7 +80,7 @@ def get_cursor():
 
 print("Printing the data from database")
 cursor = get_cursor()
-cursor.execute("SELECT * FROM components")
+cursor.execute("SELECT * FROM components") == True
 
 for i in cursor:
     print(i)
