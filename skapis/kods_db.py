@@ -147,4 +147,10 @@ if __name__ == "__main__":
     except:
         logger.error("We were not able to add " +inputvalue+ " to the database.")
 
+    print(inputvalue)
+    print(count)
+    print(total_weight)
+    print(user_name)
+    print(date)
+
     
