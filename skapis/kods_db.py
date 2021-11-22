@@ -143,7 +143,12 @@ if __name__ == "__main__":
 
     try:
         sql = "INSERT INTO skapis (name, count, total_weight, added_by, date) VALUES (%s, %s, %s, %s, %s)"
-        val = (inputvalue, count, total_weight, user_name, date)
+        val = [
+            (inputvalue), 
+            (count, total_weight), 
+            (user_name), 
+            (date)
+            ]
         get_cursor.execute(sql, val)
 
         connection.ping(reconnect=True, attempts=1, delay=0)
@@ -151,6 +156,6 @@ if __name__ == "__main__":
 
         print(get_cursor.rowcount, "record inserted.")
     except:
-        logger.error("We were not able to add" +inputvalue+ " to the database.")
+        logger.error("We were not able to add " +inputvalue+ " to the database.")
 
     
