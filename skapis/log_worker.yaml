@@ -16,7 +16,7 @@ handlers:
     delay: False
     backupCount: 60
     interval: 1
-  screen:
+  screen: 
     class: logging.StreamHandler
     level: DEBUG
     formatter: simple
