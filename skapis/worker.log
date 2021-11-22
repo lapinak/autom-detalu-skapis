@@ -56,3 +56,28 @@
 2021-11-21 20:42:46,969 - INFO - kods_db : DONE
 2021-11-21 20:43:06,063 - INFO - kods_db : You're adding button to database
 2021-11-21 20:43:06,064 - INFO - kods_db : Weight of a single button is 1.63
+2021-11-22 14:24:40,328 - INFO - kods_db : DONE
+2021-11-22 14:25:26,307 - INFO - kods_db : DONE
+2021-11-22 14:25:33,284 - INFO - kods_db : You're adding diode to database
+2021-11-22 14:25:33,285 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 14:30:14,486 - INFO - kods_db : DONE
+2021-11-22 14:30:34,852 - INFO - kods_db : DONE
+2021-11-22 14:30:40,564 - INFO - kods_db : You're adding connector to database
+2021-11-22 14:30:40,566 - INFO - kods_db : Weight of a single connector is 3.03
+2021-11-22 14:44:17,145 - INFO - kods_db : DONE
+2021-11-22 14:47:45,493 - INFO - kods_db : DONE
+2021-11-22 14:47:51,390 - INFO - kods_db : You're adding diode to database
+2021-11-22 14:47:51,391 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 14:47:51,391 - INFO - kods_db : You're adding 49 diodes to the database
+2021-11-22 15:42:33,813 - INFO - kods_db : DONE
+2021-11-22 15:42:33,816 - ERROR - kods_db : Trouble initiating the database
+2021-11-22 15:42:41,767 - INFO - kods_db : You will be adding diode to database
+2021-11-22 15:42:41,768 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 15:42:41,768 - INFO - kods_db : You're adding 20 diodes to the database
+2021-11-22 15:42:41,768 - ERROR - kods_db : We were not able to adddiode to the database.
+2021-11-22 15:44:43,558 - INFO - kods_db : DONE
+2021-11-22 15:44:43,561 - ERROR - kods_db : Trouble initiating the database
+2021-11-22 15:44:49,464 - INFO - kods_db : You will be adding diode to database
+2021-11-22 15:44:49,465 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 15:44:49,465 - INFO - kods_db : You're adding 20 diodes to the database
+2021-11-22 15:44:49,465 - ERROR - kods_db : We were not able to add diode to the database.
