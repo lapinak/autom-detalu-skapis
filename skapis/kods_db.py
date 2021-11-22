@@ -130,7 +130,7 @@ if __name__ == "__main__":
         connection.commit()
 
         print(get_cursor.rowcount, "record inserted.")
-    except:
+    except mysql.connector.Error as error:
         logger.error("Failed to insert into MySQL table {}".format(error))
 
     print(inputvalue)
