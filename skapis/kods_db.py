@@ -96,7 +96,6 @@ if __name__ == "__main__":
     else:
         user_name = "guest"
 
-    skapis_db()
     authorization()
 
     total_weight = float(input("Enter the full weight: "))
