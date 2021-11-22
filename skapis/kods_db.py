@@ -20,6 +20,7 @@ logging.config.dictConfig(config)
 # Creating logger
 logger = logging.getLogger('root')
 
+# Reading the config file and checking the username and DB loging details
 try:
     config = ConfigParser()
     config.read('config.ini')
@@ -35,18 +36,17 @@ except:
     logger.exception('')
 logger.info('DONE')
 
-# Reads config.ini file where username and password are stored to either get simple/guest access or 'account access'
-
 connection = None
 connected = False
 
-
+# DB connectivity
 def init_db():
     global connection
     connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
                                          user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
-
 init_db()
+
+# Getting a cursor
 def get_cursor():
     global connection
     try:
@@ -58,7 +58,7 @@ def get_cursor():
         connection.commit()
     return connection.cursor()
 
-
+# Reads config.ini file where username and password are stored to either get simple/guest access or 'account access'
 def access():
     try:
         print("1. Log in with account ")
@@ -77,13 +77,15 @@ def access():
             return
     except:
         logger.error("Something went wrong.")
-   
+
+# Creates a datetime to be inserted in the DB
 now = datetime.now()
 date = now.strftime("%Y-%m-%d %H:%M:%S")
 
-#Main method from which the code runs
+# Main method from which the code runs
 if __name__ == "__main__":
 
+    # Checks what type of an access what initialized, so when a value is added to the DB you can see who has added it
     if access() == True:
         user_name = username
     else:
@@ -95,10 +97,11 @@ if __name__ == "__main__":
         cursor = get_cursor()
         cursor.execute(query)
         components = cursor.fetchall()
-        print("Total number of rows in table: ", cursor.rowcount)
+        # Fetches the components table for further iteration
 
         inputvalue = str(input("What component did you weight? "))
         temp = False
+        # User is prompted to enter a component name from the components table
         for c in components:
             if inputvalue in c:
                 temp = True
@@ -109,6 +112,7 @@ if __name__ == "__main__":
     except mysql.connector.Error as e:
         logger.error("Error reading data from MySQL table", e)
 
+    # The weight of a single component, that was entered by the user, is fetched from the DB
     try:
         query_two = "select weight from components where name = '"+inputvalue+"'"
         cursor = get_cursor()
@@ -119,9 +123,11 @@ if __name__ == "__main__":
     except mysql.connector.Error as error:
         logger.error("Failed to get record from database: {}".format(error))
 
+    # Calculates the count of components by dividing input total weight to single component weight
     count = int(total_weight/single_weight)
     logger.info("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
 
+    # Inserting data into the database skapis
     try:
         sql = "INSERT INTO skapis (name, count, total_weight, added_by, date) VALUES (%s, %s, %s, %s, %s)"
         val = [(inputvalue, count, total_weight, user_name, date)]
