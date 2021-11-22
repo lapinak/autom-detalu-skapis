@@ -105,7 +105,7 @@ if __name__ == "__main__":
             if inputvalue in c:
                 temp = True
         if temp:
-            logger.info("You're adding " +inputvalue+ " to database")
+            logger.info("You will be adding " +inputvalue+ " to database")
         else:
             logger.debug("Data Does Not Exist")
     except mysql.connector.Error as e:
