@@ -140,8 +140,6 @@ if __name__ == "__main__":
             (date)
             ]
         get_cursor.execute(sql, val)
-
-        connection.ping(reconnect=True, attempts=1, delay=0)
         connection.commit()
 
         print(get_cursor.rowcount, "record inserted.")
