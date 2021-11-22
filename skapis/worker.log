@@ -172,3 +172,14 @@
 2021-11-22 16:55:45,269 - INFO - kods_db : Weight of a single capacitor is 0.75
 2021-11-22 16:55:45,269 - INFO - kods_db : You're adding 60 capacitors to the database
 2021-11-22 16:55:45,276 - INFO - kods_db : 60 capacitors added to the database
+2021-11-22 17:36:29,326 - INFO - kods_db : DONE
+2021-11-22 17:37:10,909 - INFO - kods_db : You will be adding diode to database
+2021-11-22 17:37:37,459 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 17:37:37,459 - INFO - kods_db : You're adding 20 diodes to the database
+2021-11-22 17:37:37,460 - INFO - kods_db : 20 diodes added to the database
+2021-11-22 17:38:26,243 - INFO - kods_db : DONE
+2021-11-22 17:40:02,157 - INFO - kods_db : DONE
+2021-11-22 17:40:11,241 - INFO - kods_db : You will be adding diode to database
+2021-11-22 17:40:11,243 - INFO - kods_db : Weight of a single diode is 1.12
+2021-11-22 17:40:11,243 - INFO - kods_db : You're adding 49 diodes to the database
+2021-11-22 17:40:11,248 - INFO - kods_db : 49 diodes added to the database
