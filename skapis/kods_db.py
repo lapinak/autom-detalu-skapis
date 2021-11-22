@@ -135,7 +135,8 @@ if __name__ == "__main__":
         sql = "INSERT INTO skapis (name, count, total_weight, added_by, date) VALUES (%s, %s, %s, %s, %s)"
         val = [
             (inputvalue), 
-            (count, total_weight), 
+            (count), 
+            (total_weight), 
             (user_name), 
             (date)
             ]
