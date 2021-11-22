@@ -72,3 +72,9 @@ def get_cursor():
         connection = init_db()
         connection.commit()
     return connection.cursor()
+
+cursor = get_cursor()
+cursor.execute('SELECT * FROM components')
+
+for i in cursor:
+    print(i)
