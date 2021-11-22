@@ -91,12 +91,11 @@ date = now.strftime("%Y-%m-%d")
 #Main method from which the code runs
 if __name__ == "__main__":
 
+    authorization()
     if access() == True:
         user_name = username
     else:
         user_name = "guest"
-
-    authorization()
 
     total_weight = float(input("Enter the full weight: "))
     try:
