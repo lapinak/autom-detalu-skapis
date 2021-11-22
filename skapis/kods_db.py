@@ -69,8 +69,7 @@ def access():
         else:
             return False
     except:
-        logger.debug(
-            "Your provided date is not registered, contact the administrator.")
+        logger.debug("Your provided data is not registered, contact the administrator.")
 
 
 def authorization():
@@ -110,7 +109,7 @@ if __name__ == "__main__":
         else:
             logger.debug("Data Does Not Exist")
     except mysql.connector.Error as e:
-        print("Error reading data from MySQL table", e)
+        logger.error("Error reading data from MySQL table", e)
 
     try:
         one = "select weight from components where name = '"+inputvalue+"'"
@@ -124,6 +123,6 @@ if __name__ == "__main__":
         logger.error("Failed to get record from database: {}".format(error))
 
     count = int(total_weight/single_weight)
-    print("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
+    logger.info("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
 
     
