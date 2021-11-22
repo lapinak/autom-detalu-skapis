@@ -125,3 +125,5 @@ if __name__ == "__main__":
 
     count = int(total_weight/single_weight)
     print("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
+
+    
