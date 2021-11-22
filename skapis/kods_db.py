@@ -112,32 +112,6 @@ if __name__ == "__main__":
     except mysql.connector.Error as e:
         logger.error("Error reading data from MySQL table", e)
 
-    try:
-        component_add = input("Do you wish to add a new component to the component database? y/n ")
-        if component_add == 'y':
-            try:
-                user = input("Username: ")
-                if user == username:
-                    comp_name = str(input("Name of the component: "))
-                    singlecomp_weight = float(input("Wight of a single component: "))
-                    try:
-                        sql = "INSERT INTO components (name, weight) VALUES (%s, %s)"
-                        val = [(comp_name, singlecomp_weight)]
-                        cursor.executemany(sql, val)
-                        connection.commit()
-                    except mysql.connector.Error as error:
-                        logger.error("Failed to insert into MySQL table {}".format(error))
-
-                    logger.info("New component added to the database: " +comp_name+ +str(singlecomp_weight))
-                else:
-                    logger.debug("Wrong username")
-            except:
-                logger.debug("Your provided data is not registered, contact the administrator.")
-        elif component_add == 'n':
-            print("Proceed")
-    except:
-        logger.error("You cannot add a new component to the database")
-
     # The weight of a single component, that was entered by the user, is fetched from the DB
     try:
         query_two = "select weight from components where name = '"+inputvalue+"'"
