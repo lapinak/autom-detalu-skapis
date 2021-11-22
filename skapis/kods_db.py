@@ -127,8 +127,6 @@ if __name__ == "__main__":
         val = [(inputvalue, count, total_weight, user_name, date)]
         cursor.executemany(sql, val)
         connection.commit()
-
-        print(get_cursor.rowcount, "record inserted.")
     except mysql.connector.Error as error:
         logger.error("Failed to insert into MySQL table {}".format(error))
 
