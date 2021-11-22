@@ -1,4 +1,5 @@
 import os
+from types import ClassMethodDescriptorType
 import mysql.connector
 
 from datetime import datetime
@@ -39,13 +40,14 @@ mysql_config_mysql_host = config.get('mysql_config', 'mysql_host')
 mysql_config_mysql_db = config.get('mysql_config', 'mysql_db')
 mysql_config_mysql_user = config.get('mysql_config', 'mysql_user')
 mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
-connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db, user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
+connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
+                                     user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
 assert connection.is_connected() == True
 print("Test successful")
 print(" ")
 print("└--------------------------┘")
 
-print("Checking if the component database exists")
+print("Checking if the Component database exists")
 
 connection = None
 connected = False
@@ -70,17 +72,3 @@ def get_cursor():
         connection = init_db()
         connection.commit()
     return connection.cursor()
-
-table = 'Components'
-_SQL = """SHOW TABLES"""
-get_cursor.execute(_SQL)
-results = get_cursor.fetchall()
-
-print('All existing tables:', results) # Returned as a list of tuples
-
-results_list = [item[0] for item in results] # Conversion to list of str
-
-if table in results_list:
-    print(table, 'was found!')
-else:
-    print(table, 'was NOT found!')
