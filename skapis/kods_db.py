@@ -86,7 +86,7 @@ def authorization():
         logger.error("Something went wrong.")
         
 now = datetime.now()
-date = now.strftime("%Y/%m/%d %H:%M:%S")
+date = now.strftime("%Y-%m-%d %H:%M:%S")
 
 #Main method from which the code runs
 if __name__ == "__main__":
