@@ -45,7 +45,7 @@ def init_db():
     global connection
     connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
                                          user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
-                                         
+
 init_db()
 def get_cursor():
     global connection
@@ -88,38 +88,40 @@ def authorization():
 
 # Calls out the method
 
-authorization()
+if __name__ == "__main__":
 
-total_weight = float(input("Enter the full weight: "))
-try:
-    query = "select * from components"
-    cursor = get_cursor()
-    cursor.execute(query)
-    components = cursor.fetchall()
-    print("Total number of rows in table: ", cursor.rowcount)
+    authorization()
 
-    inputvalue = str(input("What component did you weight? "))
-    temp = False
-    for c in components:
-        if inputvalue in c:
-            temp = True
-    if temp:
-        logger.info("You're adding " +inputvalue+ " to database")
-    else:
-        logger.debug("Data Does Not Exist")
-except mysql.connector.Error as e:
-    print("Error reading data from MySQL table", e)
+    total_weight = float(input("Enter the full weight: "))
+    try:
+        query = "select * from components"
+        cursor = get_cursor()
+        cursor.execute(query)
+        components = cursor.fetchall()
+        print("Total number of rows in table: ", cursor.rowcount)
 
-try:
-    one = "select weight from components where name = '"+inputvalue+"'"
-    query_two = one
-    cursor = get_cursor()
-    cursor.execute(query_two)
-    record = cursor.fetchone()
-    single_weight = float(record[0])
-    logger.info("Weight of a single " +inputvalue+ " is " + str(single_weight))
-except mysql.connector.Error as error:
-    logger.error("Failed to get record from database: {}".format(error))
+        inputvalue = str(input("What component did you weight? "))
+        temp = False
+        for c in components:
+            if inputvalue in c:
+                temp = True
+        if temp:
+            logger.info("You're adding " +inputvalue+ " to database")
+        else:
+            logger.debug("Data Does Not Exist")
+    except mysql.connector.Error as e:
+        print("Error reading data from MySQL table", e)
 
-count = int(total_weight/single_weight)
-print("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
+    try:
+        one = "select weight from components where name = '"+inputvalue+"'"
+        query_two = one
+        cursor = get_cursor()
+        cursor.execute(query_two)
+        record = cursor.fetchone()
+        single_weight = float(record[0])
+        logger.info("Weight of a single " +inputvalue+ " is " + str(single_weight))
+    except mysql.connector.Error as error:
+        logger.error("Failed to get record from database: {}".format(error))
+
+    count = int(total_weight/single_weight)
+    print("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
