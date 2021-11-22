@@ -1,5 +1,6 @@
 import logging
 import logging.config
+from os import waitpid
 import random
 import getpass
 import datetime
@@ -83,12 +84,28 @@ def authorization():
             return
     except:
         logger.error("Something went wrong.")
+        
+def skapis_db():
+    try:
+        get_cursor.execute("CREATE TABLE IF NOT EXISTS skapis (id INT AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT NULL, count int NOT NULL, total_weight float NOT NULL, added_by varchar(255) NOT NULL, date datetime NOT NULL)")
+        logger.info("You've created a database SKAPIS where all of your weighted components are going to be stored")
+        return True
+    except:
+        logger.error("Trouble initiating the database")
+        return False
 
+now = datetime.now()
+date = now.strftime("%d/%m/%Y %H:%M:%S")
 
-# Calls out the method
-
+#Main method from which the code runs
 if __name__ == "__main__":
 
+    if access == True:
+        user_name = username
+    else:
+        user_name = "guest"
+
+    skapis_db()
     authorization()
 
     total_weight = float(input("Enter the full weight: "))
@@ -112,8 +129,7 @@ if __name__ == "__main__":
         logger.error("Error reading data from MySQL table", e)
 
     try:
-        one = "select weight from components where name = '"+inputvalue+"'"
-        query_two = one
+        query_two = "select weight from components where name = '"+inputvalue+"'"
         cursor = get_cursor()
         cursor.execute(query_two)
         record = cursor.fetchone()
@@ -124,5 +140,17 @@ if __name__ == "__main__":
 
     count = int(total_weight/single_weight)
     logger.info("You're adding " +str(count)+ " " +str(inputvalue)+ "s to the database")
+
+    try:
+        sql = "INSERT INTO skapis (name, count, total_weight, added_by, date) VALUES (%s, %s, %s, %s, %s)"
+        val = (inputvalue, count, total_weight, user_name, date)
+        get_cursor.execute(sql, val)
+
+        connection.ping(reconnect=True, attempts=1, delay=0)
+        connection.commit()
+
+        print(get_cursor.rowcount, "record inserted.")
+    except:
+        logger.error("We were not able to add" +inputvalue+ " to the database.")
 
     
