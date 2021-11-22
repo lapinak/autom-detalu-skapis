@@ -85,15 +85,6 @@ def authorization():
     except:
         logger.error("Something went wrong.")
         
-def skapis_db():
-    try:
-        get_cursor.execute("CREATE TABLE IF NOT EXISTS skapis (id INT AUTO_INCREMENT PRIMARY KEY, name varchar(255) NOT NULL, count int NOT NULL, total_weight float NOT NULL, added_by varchar(255) NOT NULL, date datetime NOT NULL)")
-        logger.info("You've created a database SKAPIS where all of your weighted components are going to be stored")
-        return True
-    except:
-        logger.error("Trouble initiating the database")
-        return False
-
 now = datetime.now()
 date = now.strftime("%d/%m/%Y %H:%M:%S")
 
