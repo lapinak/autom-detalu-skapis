@@ -29,4 +29,4 @@ def create_base():
 
 
 
-print(mycursor.rowcount, " rows were inserted.")
+logger.info(mycursor.rowcount, " rows were inserted.")
