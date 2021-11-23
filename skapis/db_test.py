@@ -58,6 +58,6 @@ cursor.execute("SELECT * FROM components") == True
 for i in cursor:
     print(i)
 
-print("Test successful")
+print("Test successful!")
 print(" ")
 print("└--------------------------┘")
