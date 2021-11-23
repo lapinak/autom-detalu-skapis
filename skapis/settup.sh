@@ -35,9 +35,14 @@ $python_exec_loc config_test.py
 if [ $? -eq 0 ]; then echo "OK"; else echo "Configuration test FAILED"; exit 1; fi
 echo "------------------------------------------------"
 
-echo "Running asteroid worker tests"
+echo "Running component database test"
 $python_exec_loc db_test.py
-if [ $? -eq 0 ]; then echo "OK"; else echo "Worker test FAILED"; exit 1; fi
+if [ $? -eq 0 ]; then echo "OK"; else echo "Component_db test FAILED"; exit 1; fi
+echo "------------------------------------------------"
+
+echo "Setting up the main database"
+$python_exec_loc skapis_db.py
+if [ $? -eq 0 ]; then echo "OK"; else echo "Could not initiate the database"; exit 1; fi
 echo "------------------------------------------------"
 
 echo "ALL SET UP! YOU ARE READY TO CODE"
