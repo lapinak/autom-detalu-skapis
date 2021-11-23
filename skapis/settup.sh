@@ -46,5 +46,3 @@ if [ $? -eq 0 ]; then echo "OK"; else echo "Could not initiate the database"; ex
 echo "------------------------------------------------"
 
 echo "ALL SET UP! YOU ARE READY TO CODE"
-echo "to start the program, execute:"
-echo "$python_exec_loc worker_2_db.py"
