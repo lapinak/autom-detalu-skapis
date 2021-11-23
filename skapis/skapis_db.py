@@ -13,4 +13,4 @@ mycursor.execute("CREATE TABLE IF NOT EXISTS skapis (id INT AUTO_INCREMENT PRIMA
 
 mydb.commit()
 
-print(mycursor.rowcount, " rows were inserted.")
+print(mycursor.rowcount, " rows were inserted!")
