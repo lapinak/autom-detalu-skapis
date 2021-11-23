@@ -41,6 +41,6 @@ mysql_config_mysql_pass = config.get('mysql_config', 'mysql_pass')
 connection = mysql.connector.connect(host=mysql_config_mysql_host, database=mysql_config_mysql_db,
                                      user=mysql_config_mysql_user, password=mysql_config_mysql_pass)
 assert connection.is_connected() == True
-print("Test successful")
+print("Test successful!")
 print(" ")
 print("└--------------------------┘")
