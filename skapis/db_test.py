@@ -1,7 +1,6 @@
 import os
 import mysql.connector
 import component_list
-import skapis_db
 
 from configparser import ConfigParser
 
