@@ -62,7 +62,7 @@ def access():
     try:
         print("1. Log in with account ")
         print("2. Continue in guest mode ")
-        access_type = input("What access do you wish to have? ")
+        access_type = input("What access do you wish to have? 1/2 ")
         if access_type == '1':
             try:
                 user = input("Username: ")
