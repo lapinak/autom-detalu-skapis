@@ -183,3 +183,8 @@
 2021-11-22 17:40:11,243 - INFO - kods_db : Weight of a single diode is 1.12
 2021-11-22 17:40:11,243 - INFO - kods_db : You're adding 49 diodes to the database
 2021-11-22 17:40:11,248 - INFO - kods_db : 49 diodes added to the database
+2021-11-23 17:55:16,839 - INFO - kods_db : DONE
+2021-11-23 17:55:33,488 - INFO - kods_db : You will be adding RGB to database
+2021-11-23 17:55:33,489 - INFO - kods_db : Weight of a single RGB is 2.01
+2021-11-23 17:55:33,489 - INFO - kods_db : You're adding 11 RGBs to the database
+2021-11-23 17:55:33,493 - INFO - kods_db : 11 RGBs added to the database
