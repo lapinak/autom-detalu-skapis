@@ -1,5 +1,7 @@
 import mysql.connector
 
+
+#Requires your connection data to be inserted
 mydb = mysql.connector.connect(
   host="127.0.0.1",
   user=
