@@ -1,6 +1,7 @@
 #!/bin/bash
 location="/secret_folder"
 
+echo "------------------------------------------------"
 echo "Checking if config.ini exists"
 if test -f "config.ini"; then
     echo "exists"
@@ -21,14 +22,9 @@ else
 fi
 echo "------------------------------------------------"
 
-echo "Creating component database"
-$python_exec_loc component_list.py
-if [ $? -eq 0 ]; then echo "OK"; else echo "Database activisation FAILED"; exit 1; fi
-echo "------------------------------------------------"
-
-echo "Creating skapis database"
-$python_exec_loc component_list.py
-if [ $? -eq 0 ]; then echo "OK"; else echo "Database activisation FAILED"; exit 1; fi
+echo "Running config tests"
+$python_exec_loc config_test.py
+if [ $? -eq 0 ]; then echo "OK"; else echo "Configuration test FAILED"; exit 1; fi
 echo "------------------------------------------------"
 
 echo "You're all set"
