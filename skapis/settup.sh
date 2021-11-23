@@ -1,20 +1,20 @@
 #!/bin/bash
-sec_secret_storage_loc="/secret_folder"
+secret="/secret_folder"
 
 echo "Script for preparing the development environment"
 echo "------------------------------------------------"
 
-echo "Checking if config.ini exists in the current working dir -->"
+echo "Checking if config.ini exists"
 if test -f "config.ini"; then
     echo "exists"
 else
 	echo "Copying config file from secure secret storage"
-	cp $HOME$sec_secret_storage_loc/config.ini .
+	cp $HOME$secret/config.ini .
 	if [ $? -eq 0 ]; then echo "OK"; else echo "Problem copying config.ini file"; exit 1; fi
 fi
 echo "------------------------------------------------"
 
-echo "Checking if log_worker.yaml exists in the current working dir -->"
+echo "Checking if log_worker.yaml exists"
 if test -f "log_worker.yaml"; then
     echo "exists"
 else
@@ -24,7 +24,7 @@ else
 fi
 echo "------------------------------------------------"
 
-echo "Getting python3 executable loc"
+echo "Getting python3 executable"
 python_exec_loc=$(which python3)
 if [ $? -eq 0 ]; then echo "OK"; else echo "Problem getting python3 exec location"; exit 1; fi
 echo "$python_exec_loc"
@@ -45,4 +45,5 @@ $python_exec_loc skapis_db.py
 if [ $? -eq 0 ]; then echo "OK"; else echo "Could not initiate the database"; exit 1; fi
 echo "------------------------------------------------"
 
-echo "ALL SET UP! YOU ARE READY TO CODE"
+echo "To start the program, execute:"
+echo "$python_exec_loc kods_db.py"
