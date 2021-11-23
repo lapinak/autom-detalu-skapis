@@ -34,7 +34,6 @@ try:
 
 except:
     logger.exception('')
-logger.info('DONE')
 
 connection = None
 connected = False
@@ -114,7 +113,7 @@ if __name__ == "__main__":
         else:
             logger.debug("Data Does Not Exist")
     except mysql.connector.Error as e:
-        logger.error("Error reading data from MySQL table", e)
+        logger.error("Error reading data from MySQL table")
 
     # The weight of a single component, that was entered by the user, is fetched from the DB
     try:
