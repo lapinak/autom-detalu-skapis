@@ -45,5 +45,5 @@ $python_exec_loc skapis_db.py
 if [ $? -eq 0 ]; then echo "OK"; else echo "Could not initiate the database"; exit 1; fi
 echo "------------------------------------------------"
 
-echo "To start the program, execute:"
+echo "Start the program by executing:"
 echo "$python_exec_loc kods_db.py"
