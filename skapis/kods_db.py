@@ -60,8 +60,8 @@ def get_cursor():
 # Reads config.ini file where username and password are stored to either get simple/guest access or 'account access'
 def access():
     try:
-        print("1. Log in with account ")
-        print("2. Continue in guest mode ")
+        print("1. Log in with account")
+        print("2. Continue in guest mode")
         access_type = input("What access do you wish to have? 1/2 ")
         if access_type == '1':
             try:
