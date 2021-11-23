@@ -1,5 +1,7 @@
 import os
 import mysql.connector
+import component_list
+import skapis_db
 
 from configparser import ConfigParser
 
@@ -37,6 +39,7 @@ def init_db():
 
 init_db()
 
+component_list.create_base()
 
 def get_cursor():
     global connection
