@@ -10,7 +10,7 @@ from datetime import datetime
 from configparser import ConfigParser
 from mysql.connector import Error
 
-
+#Added a random comment
 # Loading logging configuration
 with open('./log_worker.yaml', 'r') as stream:
     config = yaml.safe_load(stream)
